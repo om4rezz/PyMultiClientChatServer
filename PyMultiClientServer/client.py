@@ -24,10 +24,18 @@ class Client(threading.Thread):
         return self.uid
 
     def push_to_client(_sender, name, msg):
+        if name == 'all':
+            for c in Client.client_list:
+                if c.get_name() == _sender:
+                    continue
+                c.get_socket().send((_sender + " -> " + msg).encode())
+            return 1
+
         for c in Client.client_list:
             if name == c.get_name():
                 c.get_socket().send((_sender + " -> " + msg).encode())
                 return 1
+
         return -1
 
     def run(self):
