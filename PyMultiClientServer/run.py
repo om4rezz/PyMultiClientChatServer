@@ -7,8 +7,6 @@ def Main():
     host = "127.0.0.1"
     port = 4001
 
-    client_list = []
-
     mySocket = socket.socket()
     mySocket.bind((host, port))
 
@@ -19,13 +17,17 @@ def Main():
         soc, addr = mySocket.accept()
         print("Connection from: " + str(addr))
 
-        client = Client(len(client_list), "", soc)
-        client_list.append(client)
+        client = Client(len(Client.client_list), "", soc)
 
-        print("Number of connected clients: %d" % len(client_list))
+        client.start()
 
-        for client in client_list:
+        Client.client_list.append(client)
+
+        print("Number of connected clients: %d" % len(Client.client_list))
+
+        for client in Client.client_list:
             print("Client UID: " + str(client.get_uid()))
+            print("Client name: " + str(client.get_name()))
 
 if __name__ == '__main__':
     Main()
