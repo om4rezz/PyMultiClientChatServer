@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 import socket
-import threading.Thread
+import threading
 
 class Client(threading.Thread):
     '''This is the core class of the client'''
