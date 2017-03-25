@@ -25,22 +25,6 @@ def Main():
 
         print("Number of connected clients: %d" % len(Client.client_list))
 
-        for client in Client.client_list:
-            print("Client UID: " + str(client.get_uid()))
-            print("Client name: " + str(client.get_name()))
 
 if __name__ == '__main__':
     Main()
-
-
-    # while True:
-        #     data = conn.recv(1024).decode()
-        #     if not data:
-        #         break
-        #     print("from connected  user: " + str(data))
-        #
-        #     data = str(data).upper()
-        #     print("sending: " + str(data))
-        #     conn.send(data.encode())
-        #
-        # conn.close()

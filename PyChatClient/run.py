@@ -62,13 +62,7 @@ class Receiver(threading.Thread):
             # mySocket.send(message.encode())
 
             data = self.socket.recv(1024).decode()
-            print(len(data))
-            strData = str(data)
             print(data + "\n" + self.name + " -> ", end = '')
-
-
-
-
 
 if __name__ == '__main__':
     Main()
