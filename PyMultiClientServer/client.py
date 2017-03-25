@@ -7,6 +7,7 @@ class Client(threading.Thread):
     '''This is the core class of the client'''
 
     def __init__(self, uid, name, socket):
+        threading.Thread.__init__(self)
         self.uid = uid
         self.name = name
         self.socket = socket

@@ -22,6 +22,11 @@ def Main():
         client = Client(len(client_list), "", soc)
         client_list.append(client)
 
+        print("Number of connected clients: %d" % len(client_list))
+
+        for client in client_list:
+            print("Client UID: " + str(client.get_uid()))
+
 if __name__ == '__main__':
     Main()
 
